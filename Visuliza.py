@@ -24,18 +24,20 @@ def Fit_plot(history, batch_size, epoch):
 
 
 
-def dice_plot(Test_Mask,pred):
+def dice_plot(Test_Mask,pred,model):
         dice=[]
         for i in range(len(pred)):
             dice.append(dice_coef(Test_Mask[i],pred[i]))
         plt.plot(np.arange(len(dice)),dice,linewidth=1,color='r',marker='o',markerfacecolor='blue',markersize=3)
-        plt.title('Figure of Dice_Coef')
+        plt.title(model+': '+'Figure of Dice_Coef')
         plt.xlabel('picture')
         plt.xticks(np.arange(0,52,2))
         plt.ylabel('dice_coef')
         plt.yticks(np.arange(0,1.2,0.1))
+        meanDice=sum(dice)/len(dice)
+        plt.text(30, 0.3, 'meanDice=%lf'%meanDice,fontsize=12)
         plt.grid()
-        plt.savefig('./Visuliza_DiceCoef.png')
+        plt.savefig('../result/1D/vessel/Visuliza_DiceCoef_'+model+'.png')
         plt.show()
 
 
