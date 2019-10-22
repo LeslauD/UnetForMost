@@ -13,7 +13,7 @@ from skimage.io import imread
 from skimage.io import imsave
 
 
-# In[22]:
+
 
 
 from keras.models import *
@@ -24,7 +24,7 @@ from keras.callbacks import Callback,ModelCheckpoint,LearningRateScheduler
 from keras.layers import Input,Conv2D,MaxPooling2D,UpSampling2D,concatenate,Dropout
 
 
-# In[23]:
+
 
 
 def Unet():
@@ -116,7 +116,7 @@ def Unet():
     return model
 
 
-# In[24]:
+
 
 
 def Fit_plot(history, batch_size, epoch):
@@ -140,7 +140,7 @@ def Fit_plot(history, batch_size, epoch):
     plt.show()
 
 
-# In[25]:
+
 
 
 #normalization
