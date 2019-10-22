@@ -35,7 +35,7 @@ def dice_plot(Test_Mask,pred,model):
         plt.ylabel('dice_coef')
         plt.yticks(np.arange(0,1.2,0.1))
         meanDice=sum(dice)/len(dice)
-        plt.text(30, 0.3, 'meanDice=%lf'%meanDice,fontsize=12)
+        plt.text(15, 1.2, 'meanDice=%lf'%meanDice,fontsize=12)
         plt.grid()
         plt.savefig('../result/1D/vessel/Visuliza_DiceCoef_'+model+'.png')
         plt.show()
