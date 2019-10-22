@@ -89,3 +89,18 @@ def dice(y_true, y_pred,smooth=1):
     intersection = np.sum(y_true_f * y_pred_f)#|X∩Y|
     dice=(2 * intersection + smooth) / (np.sum(y_true_f*y_true_f) + np.sum(y_pred_f*y_pred_f) + smooth)  #（2*|X∩Y|）/（|X|+|Y|）  2*重叠区域大小/总的大小
     return dice
+
+
+def diceloss(y_true, y_pred,smooth=1):
+    return 1-dice(y_true, y_pred,smooth=1)
+
+
+#img array in   | img array out
+#Erode (腐蚀) Dilate (膨胀)  Change
+def EDC(img):
+    img = img.astype('uint8')
+    kernel = np.ones((5,5),np.uint8)
+    imgE = cv.erode(img, kernel, iterations = 2)  #对原图进行两次腐蚀
+    imgD = cv.dilate(img, kernel, iterations = 2) #对原图进行两次膨胀
+    
+    return imgD
